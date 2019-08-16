@@ -17,18 +17,62 @@ namespace CSharpExercises
 
         public static string ReverseStringHard(string quote)
         {
-            throw new NotImplementedException();
+            char[] cArray = quote.ToCharArray();
+            string reverse = String.Empty;
+            for (int i = cArray.Length - 1; i > -1; i--)
+            {
+                reverse += cArray[i];
+            }
+            return reverse;
         }
 
         /* Alright - your turn now! */
 
         // 1. Create a method called SayHello that accepts a string representing a name and returns a welcome message (E.g. "Hello John!")
+        public static string SayHello(string name)
+        {
+            return "Hello " + name + "!";
+        }
+
         // 2. Create a method called Sum that accepts two integers and returns their sum.
+        public static int Sum(int a, int b)
+        {
+            return a + b;
+        }
         // 3. Create a method called Divide that accepts two decimals and returns the result of dividing the two numbers as a decimal.
+        public static int Divide(int a, int b)
+        {
+            return a / b;
+        }
         // 4. Create a method called CanOpenCheckingAccount that accepts an integer representing a customers age, returning true if the age is greater than or equal to 18, or false if the argument is less than 18.
+        public static bool CanOpenCheckingAccount(int age)
+        {
+            if (age >= 18)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         // 5. Create a method called GetFirstName that accepts a string representing a full name (e.g. "John Smith"), and returns only the first name.
+        public static string GetFirstName(string fullName)
+        {
+            string[] nameArray = fullName.Split(' ');
+            string firstName = nameArray[0];
+            return firstName;
+        }
         // 6. Create a method called ReverseStringHard that accepts a string and returns the string in reverse. (No built in functions allowed)
         // 7. Create a method called ReverseStringEasy that accepts a string and returns the string in reverse. (Using only built in functions)
+        public static string ReverseStringEasy(string quote)
+        {
+            char[] toArray = quote.ToCharArray();
+            Array.Reverse(toArray);
+            string reversed = String.Join("", toArray);
+            return reversed;
+        }
+
         // 8. Create a method called PrintTimesTable that accepts an integer and returns the times table as a string for that number up to the 10th multiplication.
         /* e.g. 10 should return
          * 10 * 1 = 10
@@ -41,10 +85,40 @@ namespace CSharpExercises
          * 10 * 8 = 80
          * 10 * 9 = 90
          * 10 * 10 = 10 */
+        public static string PrintTimesTable(int number)
+        {
+            string timestable = String.Empty;
 
+            for (int i = 1; i < 10; i++)
+            {
+
+                timestable += $"{number} * {i} = {i * number}\r\n";
+            }
+            return timestable += $"{number} * 10 = " + number * 10;
+        }
         // 9. Create a method called ConvertKelvinToFahrenheit that accepts a double representing a temperature in kelvin and returns a double containing the temperature in Fahrenheit.
+        public static double ConvertKelvinToFahrenheit(double kelvin)
+        {
+            double fahrenheit = kelvin * 9.0 / 5.0 - 459.67;
+            return Math.Round(fahrenheit, 2);
+        }
         // 10. Create a method called GetAverageHard that accepts an array of integers and returns the average value as a double. (No built in functions allowed)
+        public static double GetAverageHard(int[] arr)
+        {
+            int arrLength = arr.Length;
+            double sum = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sum += arr[i];
+            }
+            double average = sum / arrLength;
+            return average;
+        }
         // 11. Create a method called GetAverageEasy that accepts an array of integers and returns the average value as a double. (Using only built in functions)
+        public static double GetAverageEasy(int[] arr)
+        {
+            return arr.Average();
+        }
         // 12. Create a method called DrawTriangle that accepts two integers - number and width and returns a string containing a drawn triangle using the number parameter.
         /* e.g. Number: 8, Width: 8 should return
          * 88888888
@@ -55,6 +129,10 @@ namespace CSharpExercises
          * 888
          * 88
          * 8 */
+         public static string DrawTriangle(int number, int width)
+         {
+
+         }
 
         // 13. Create a method called GetMilesPerHour that accepts a double representing distance and three integers representing hours, minutes and seconds. The method should return the speed in MPH rounded to the nearest whole number as a string. (e.g. "55MPH")
 
